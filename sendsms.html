@@ -1,0 +1,139 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Message Sending Utility</title>
+<!-- 
+ --    author         : sumit ramteke
+ --    date           : 12-06-2013 04:12 PM
+ --    description    : it stores message in the database which are suppose to send at particular date and time
+-->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<script src="Scripts/DateTimePicker.js" type="text/javascript"></script>
+<script src="Scripts/date.format.js" type="text/javascript"></script>
+<style type="text/css">
+body {
+	background-color: #DBE8F9;
+	font: 12px/25px "Lucida Grande", "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color: #5A698B;
+}
+
+#title {
+	width: 330px;
+	height: 26px;
+	color: #5A698B;
+	font: bold 12px/19px "Lucida Grande", "Trebuchet MS", Arial, Helvetica, sans-serif;
+	padding-top: 5px;
+	background: transparent url("Image/bg_legend.gif") no-repeat;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	text-align: center;
+}
+
+form {
+	width: 335px;
+}
+
+.col1 {
+	text-align: right;
+	width: 135px;
+	height: 31px;
+	margin: 0;
+	float: left;
+	margin-right: 2px;
+	background: url(Image/bg_label.gif) no-repeat;
+}
+
+.col2 {
+	width: 195px;
+	height: 31px;
+	display: block;
+	float: left;
+	margin: 0;
+	background: url(Image/bg_textfield.gif) no-repeat;
+}
+
+.col2comment {
+	width: 195px;
+	height: 98px;
+	margin: 0;
+	display: block;
+	float: left;
+	background: url(Image/bg_textarea.gif) no-repeat;
+}
+
+.col1comment {
+	text-align: right;
+	width: 135px;
+	height: 98px;
+	float: left;
+	display: block;
+	margin-right: 2px;
+	background: url(Image/bg_label_comment.gif) no-repeat;
+}
+
+div.row {
+	clear: both;
+	width: 335px;
+}
+
+.submit {
+	height: 29px;
+	width: 330px;
+	background: url(Image/bg_submit.gif) no-repeat;
+	padding-top: 5px;
+	clear: both;
+} 
+
+.input {
+	background-color: #fff;
+	font: 12px/15px "Lucida Grande", "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color: #5A698B;
+	margin: 4px 0 5px 8px;
+	padding: 1px;
+	border: 1px solid #8595B2;
+}
+
+.textarea {
+	border: 1px solid #8595B2;
+	background-color: #fff;
+	font: 11px/14px "Lucida Grande", "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color: #5A698B;
+	margin: 4px 0 5px 8px;
+}
+
+</style>
+</head>
+
+<body>
+<form action="savesmsscript.php" method="post">
+<div id="title">SMS Sending Utility</div>
+<div class="row"><label class="col1">Name:&nbsp;&nbsp;</label>
+<span class="col2"><input name="name" class="input" type="text" id="name" size="20" tabindex="1"  /></span>
+</div>
+<div class="row"><label class="col1">Associated Resume ID:&nbsp;&nbsp;</label>
+<span class="col2"><input name="rid" class="input" type="text" id="rid" size="20" tabindex="2"  /></span>
+</div>
+<div class="row"><label class="col1">Mobile No.:&nbsp;&nbsp;</label>
+<span class="col2"><input name="mob" class="input" type="text" id="mob" size="15" tabindex="3" maxlength="10"/></span>
+</div>
+<div class="row"><label class="col1">Scheduled Date:&nbsp;&nbsp;</label>
+<span class="col2">
+	<input name="sendDt" class="input" type="text" id="sendDt" size="20" tabindex="4" readonly="readonly" />
+	<img src="Image/cal.gif" style="cursor: pointer;" onclick="javascript:NewCssCal('sendDt','ddMMyyyy','dropdown',true,'12')" />
+</span>
+</div>
+<div class="row"><label class="col1comment">Message:&nbsp;&nbsp;</label>
+<span class="col2comment"><textarea cols="22" class="textarea" rows="5" name="msg" id="msg" tabindex="5" ></textarea></span>
+</div>
+<div class="row"><label class="col1">Hyperlink to attach:&nbsp;&nbsp;</label>
+<span class="col2"><input name="hyplink" class="input" type="text" id="hyplink" size="30" tabindex="6"  /></span>
+</div>
+<div align="center" class="submit"><input type="image" src="Image/b_send.gif" alt="send" width="52" height="19" border="0" />
+</div>
+</form>
+
+<script type="text/javascript">
+	document.getElementById('sendDt').value = dateFormat(new Date(), "dd-mm-yyyy hh:MM TT");
+</script>
+</body>
+</html>
